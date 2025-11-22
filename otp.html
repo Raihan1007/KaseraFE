@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kasera - Pengisian OTP</title>
+    <link rel="stylesheet" href="otp.css" />
+</head>
+    <body class="centered-page">
+        <div class="container">
+            <a href="lupapw.html" class="back-arrow">
+                <img src='Arrow.png' alt="Back" />
+            </a>
+
+            <div class="content-wrapper">
+
+                <div class="banner">
+                    <img src='Hero_2.png' alt="Komputer OTP Code" width="428" height="436" />
+                </div>
+
+                <div class="otp-container">
+                    <label for="email-phone">Verifikasi Email / Nomor Handphone</label>
+                    <p class="info-text">Nomor handphone ini terdaftar sebagai akun pengguna di Kasera.</p>
+                    <p class="info-text">Silakan masukkan kode verifikasi yang telah kami kirimkan ke <strong id="masked-phone"></strong><span id="contact-method"></span></p>
+
+                    <div class="otp-inputs">
+                        <input type="text" maxlength="1" class="otp-box" id="o1">
+                        <input type="text" maxlength="1" class="otp-box" id="o2">
+                        <input type="text" maxlength="1" class="otp-box" id="o3">
+                        <input type="text" maxlength="1" class="otp-box" id="o4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+        const inputs = document.querySelectorAll(".otp-box");
+
+inputs.forEach((input, index) => {
+    input.addEventListener("input", (e) => {
+        const value = e.target.value.replace(/\D/g, "");
+        e.target.value = value;
+
+        // Auto next
+        if (value && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+        }
+
+        // Paste handler (jika user paste 2 digit atau lebih)
+        if (value.length > 1) {
+            const digits = value.split("");
+
+            inputs[index].value = digits[0];
+
+            if (index + 1 < inputs.length) {
+                inputs[index + 1].focus();
+                inputs[index + 1].value = digits[1] || "";
+            }
+        }
+
+        // Jika semua terisi
+        checkOTP();
+    });
+
+    // Backspace handler
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace" && !input.value && index > 0) {
+            inputs[index - 1].focus();
+        }
+    });
+});
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+
+function checkOTP() {
+    const otp = [...inputs].map(i => i.value).join("");
+
+    if (otp.length === 4) {
+        if (otp === "1234") {
+            window.location.href = "ubahpw.html";  // Redirect ke halaman berikutnya
+        } else {
+            showToast("Kode OTP salah!");
+            inputs.forEach(inp => inp.value = "");
+            inputs[0].focus();
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const phoneDisplay = document.getElementById("masked-phone");
+    const contactMethodEl = document.getElementById("contact-method");
+
+    const raw = (localStorage.getItem("user_contact") || "").trim();
+
+    let masked = "";
+    let contactMethod = "";
+
+    if (!raw) {
+        masked = "";
+        contactMethod = "";
+    } else if (raw.includes("@")) {
+        // Masking email hanya tampilkan 3 karakter terakhir sebelum @
+        const [name, domain] = raw.split("@");
+
+        if (!domain) {
+            masked = raw; // fallback jika format aneh
+        } else {
+            if (name.length <= 3) {
+                // Nama pendek: tampilkan apa adanya
+                masked = `${name}@${domain}`;
+            } else {
+                const last3 = name.slice(-3);                       // 3 char terakhir
+                const stars = "*".repeat(name.length - 3);          // jumlah * sama seperti karakter yang disensor
+                masked = `${stars}${last3}@${domain}`;
+            }
+        }
+
+        contactMethod = " melalui Email.";
+    } else {
+        // Masking nomor HP
+        if (raw.length > 3) {
+            const last3 = raw.slice(-3);
+            const stars = "*".repeat(Math.max(0, raw.length - 3));
+            masked = stars + last3;
+        } else {
+            const stars = "*".repeat(Math.max(0, raw.length - 1));
+            masked = stars + raw.slice(-1);
+        }
+        contactMethod = " melalui WhatsApp.";
+    }
+
+    if (phoneDisplay) phoneDisplay.textContent = masked;
+    if (contactMethodEl) contactMethodEl.textContent = contactMethod;
+});
+
+
+    </script>
+
+    </body>
+</html>

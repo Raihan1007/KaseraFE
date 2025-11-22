@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kasera - Ubah Password</title>
+    <link rel="stylesheet" href='ubah-password.css' />
+</head>
+<body class="centered-page">
+    <div class="container">
+        <a href="otp.html" class="back-arrow">
+            <img src='Arrow.png' alt="Back" />
+        </a>
+
+        <div class="content-wrapper">
+
+            <div class="banner">
+                <img src='Hero_3.png' alt="Ubah Password" width="428" height="436" />
+            </div>
+
+            <div class="change-password-container">
+                <h1>Ubah Password</h1>
+                <p class="info-text">Password baru ini akan digunakan untuk mengakses akun di Kasera.</p>
+
+                <div class="password-wrapper">
+                    <label for="new-password">Password Baru</label>
+                    <input type="password" id="new-password" placeholder="Masukkan password baru" required>
+                    <img src='close-eye.png'class="toggle-eye" data-target="new-password" alt="toggle password">
+                </div>
+
+                <div class="password-wrapper">
+                    <label for="confirm-password">Konfirmasi Password</label>
+                    <input type="password" id="confirm-password" placeholder="Konfirmasi password" required>
+                    <img src='close-eye.png'class="toggle-eye" data-target="confirm-password" alt="toggle password">
+                </div>
+
+                <button id="submit-reset" type="button">Simpan</button>
+            </form>
+            </div>
+        </div>
+    </div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", init);
+
+function init() {
+    const newPass = document.getElementById("new-password");
+    const confirmPass = document.getElementById("confirm-password");
+    const submitBtn = document.getElementById("submit-reset");
+
+    // event: klik button
+    submitBtn.addEventListener("click", processSubmit);
+
+    // event: enter di input
+    newPass.addEventListener("keydown", onEnter);
+    confirmPass.addEventListener("keydown", onEnter);
+}
+
+
+// Menampilkan toast
+
+function showToast(msg, type) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = msg;
+    toast.classList.remove("toast-error", "toast-success");
+
+    if (type === "error") toast.classList.add("toast-error");
+    else toast.classList.add("toast-success");
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+
+// Memproses Submit
+function processSubmit() {
+    const p1 = document.getElementById("new-password").value.trim();
+    const p2 = document.getElementById("confirm-password").value.trim();
+
+    if (p1 === "" || p2 === "") {
+        showToast("Isi semua password!", "error");
+        return;
+    }
+
+    if (p1 !== p2) {
+        showToast("Password tidak sama!", "error");
+        return;
+    }
+
+    showToast("Password disimpan!", "success");
+
+    /* Silahkan pak jika ingin pindah halaman!
+    setTimeout(() => {
+        window.location.href = "success.html";
+    }, 1200);
+    */
+}
+
+// FUNGSI 3 — Trigger submit saat Enter ditekan
+function onEnter(e) {
+    if (e.key === "Enter") {
+        processSubmit();
+    }
+}
+
+document.querySelectorAll(".toggle-eye").forEach(icon => {
+    icon.addEventListener("click", () => {
+        const target = document.getElementById(icon.dataset.target);
+
+        if (target.type === "password") {
+            target.type = "text";
+            icon.src = "{{asset('images/open-eye.png') }}";   // ganti ke ikon mata terbuka
+        } else {
+            target.type = "password";
+            icon.src = "{{asset ('images/close-eye.png') }}"; // ganti ke ikon mata tertutup
+        }
+    });
+});
+
+
+</script>
+
+</body>
+</html>

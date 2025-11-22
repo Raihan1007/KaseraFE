@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #ffffff;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Kiri */
+.left {
+    width: 50%;
+    background: #f9faf9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.left h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.left img {
+    width: 75%;
+    max-width: 450px;
+}
+
+/* Kanan */
+.right {
+    width: 50%;
+    padding: 40px 60px;
+    position: relative;
+}
+
+.back {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.right h2 {
+    text-align: center;
+    margin: 20px 0 40px 0;
+    font-size: 26px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #d5d5d5;
+    border-radius: 10px;
+    background: #f1f4f1;
+    outline: none;
+    font-size: 14px;
+}
+
+.error {
+    color: red;
+    font-size: 11px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+.btn-daftar {
+    display: inline-block;
+    background: #6a7f6a;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-daftar:hover {
+    background: #556655;
+}
+
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    .left, .right {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kasera - Lupa Password</title>
+    <link rel="stylesheet" href="lupa-password.css" />
+</head>
+<body class="centered-page">
+    <div class="container">
+        <a href="login.html" class="back-arrow">
+            <img src='Arrow.png' alt="Back" />
+        </a>
+
+        <div class="content-wrapper">
+            <div class="illustration">
+                <img src='Hero_1.png' alt="Ilustrasi komputer lupa password" width="429" height="537" />
+            </div>
+
+            <div class="form-container" role="main" aria-label="Formulir lupa password">
+                <h1>Lupa Password</h1>
+                <p class="info-text">Masukkan nomor handphone yang terdaftar di Kasera, kemudian lakukan verifikasi untuk mengatur ulang password.</p>
+
+                <form action="#" method="post">
+                    <label for="email-phone">Email / Nomor Handphone</label>
+                    <input 
+                        type="text" 
+                        id="email-phone" 
+                        name="email-phone" 
+                        placeholder="Masukkan data yang kamu daftarkan" 
+                        aria-describedby="emailHelp"
+                        required
+                    />
+                    <p class="info-text">Kamu dapat mengatur ulang password setelah verifikasi berhasil.</p>
+                    
+                    <button id="submit" type="button">Kirim OTP</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", initApp);
+
+// initializer
+function initApp() {
+    const submitBtn = document.getElementById("submit");
+    const input = document.getElementById("email-phone");
+
+    submitBtn.addEventListener("click", () => handleSubmit(input));
+}
+
+// Handle submit form
+function handleSubmit(inputField) {
+    const value = inputField.value.trim();
+
+    if (value === "") {
+        showToast("Email / No Handphone harus diisi!");
+        return;
+    }
+
+    saveUserContact(value);
+    goToOTPPage();
+}
+
+// Simpan ke localstorage
+function saveUserContact(value) {
+    localStorage.setItem("user_contact", value);
+}
+
+// Pindah halaman OTP
+function goToOTPPage() {
+    window.location.href = "otp.html";
+}
+
+// Tampilkan toast
+function showToast(message) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+    </script>
+</body>
+</html>
