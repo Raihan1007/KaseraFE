@@ -1,53 +1,106 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Kasera</title>
-    <link rel="stylesheet" href="regis.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kasera - Daftar</title>
+    <link rel="stylesheet" href="./css/register.css" />
 </head>
-<body>
+<body class="centered-page">
+    <div class="container">
+        <a href="login.html" class="back-arrow">
+            <img src="Arrow.png" alt="Back" />
+        </a>
 
-<div class="container">
+        <div class="content-wrapper">
 
-    <!-- Bagian Kiri -->
-    <div class="left">
-        <h1>Daftar Kasera Sekarang</h1>
-        <img src='registrasi.png'alt="illustration">
-    </div>
+            <div class="banner">
+                <img src="register.png" alt="Ubah Password" width="428" height="436" />
+            </div>
 
-    <!-- Bagian Kanan -->
-    <div class="right">
-        <div class="back">
-            <span>&larr;</span>
+            <div class="daftar-container">
+                <h1>Daftar Kasera</h1>
+
+                <div class="input-wrapper">
+                    <label for="email">Nama Depan</label>
+                    <input type="text" placeholder="Masukkan nama depan" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="email">Nama Belakang</label>
+                    <input type="text" placeholder="Masukkan nama belakang" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" placeholder="Contoh: nama@gmail.com" required>
+                </div>
+
+                <div class="password-wrapper">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Masukkan password" required>
+                    <img src="close-eye.png" class="toggle-eye" data-target="password" alt="toggle">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="email">Nomor Handphone</label>
+                    <input type="text" placeholder="Masukkan nomor handphone" required>
+                </div>
+
+                <button id="submit-register" type="button">Daftar</button>
+
+            </div>
         </div>
-
-        <h2>Daftar Kasera</h2>
-
-        <form>
-
-            <label>Nama Depan</label>
-            <input type="text" placeholder="Masukkan nama depan">
-
-            <label>Nama Belakang</label>
-            <input type="text" placeholder="Masukkan nama belakang">
-
-            <label>Email</label>
-            <input type="email" placeholder="Contoh : nama@email.com">
-            <p class="error">*Email tidak valid</p>
-
-            <label>Password</label>
-            <input type="password" placeholder="Minimal 8 karakter">
-            <p class="error">*Password terlalu pendek</p>
-
-            <label>No. HP</label>
-            <input type="text" placeholder="Masukkan nomor HP">
-
-            <a href="login.html" class="btn-daftar">Daftar</a>           
-        </form>
     </div>
 
-</div>
+<div id="toast" class="toast"></div>
+
+<script>
+    document.querySelectorAll('.toggle-eye').forEach(icon => {
+    icon.addEventListener('click', () => {
+        const targetId = icon.getAttribute('data-target');
+        const input = document.getElementById(targetId);
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.src = './Assets/Register/open-eye.png';
+        } else {
+            input.type = 'password';
+            icon.src = './Assets/Register/close-eye.png';
+        }
+    });
+});
+
+// Tampilkan toast
+function showToast(message) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+
+// Validasi semua input
+function handleRegister() {
+    const fields = document.querySelectorAll(".input-wrapper input, .password-wrapper input");
+
+    for (let field of fields) {
+        if (field.value.trim() === "") {
+            showToast("Semua field wajib diisi!");
+            return;
+        }
+    }
+
+    window.location.href = "dashboard.html";
+}
+
+document.getElementById("submit-register").addEventListener("click", handleRegister);
+</script>
 
 </body>
 </html>
