@@ -1,48 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Kasera</title>
-    <link rel="stylesheet" href='login.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kasera - Login</title>
+    <link rel="stylesheet" href="login.css" />
 </head>
-<body>
+<body class="centered-page">
+    <div class="container">
+        <a href="index.html" class="back-arrow">
+            <img src="Arrow.png" alt="Back" />
+        </a>
 
-<div class="container">
+        <div class="content-wrapper">
 
-    <div class="left">
-        <img src='login.png' alt="Login Illustration">
-    </div>
-
-    <div class="right">
-
-        <div class="back">
-            <a href="register.html">&#8592;</a>
-        </div>
-
-        <h2>Login ke Kasera</h2>
-
-        <form>
-
-            <label>Email / Nomor Handphone</label>
-            <input type="email" placeholder="Masukkan email / nomor handphone">
-
-            <label>Password</label>
-            <input type="password" placeholder="Masukkan password">
-
-            <a href="lupapw.html" class="forgot">Lupa Password?</a>
-
-            <a href="dashboard.html" class="btn-login">Login</a>
-
-            <div class="register-text">
-                Belum punya akun Kasera? <a href="register.html">Daftar sekarang</a>
+            <div class="banner">
+                <img src="login.png" alt="Ubah Password" width="428" height="436" />
             </div>
 
-        </form>
+            <div class="login-container">
+                <h1>Login ke Kasera</h1>
 
+                <div class="input-wrapper">
+                    <label for="email">Email / No Handphone</label>
+                    <input type="text" id="email" placeholder="Masukkan Email / No Handphone" required>
+                </div>
+
+                <div class="password-wrapper">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Masukkan password" required>
+                    <img src="close-eye.png" class="toggle-eye" data-target="password" alt="toggle">
+                </div>
+
+                <a href="lupa-password.html" class="info-text-forgot">Lupa password?</a>
+
+                <button id="submit-reset" type="button">Login</button>
+
+                <p class="info-text-register">
+                    Belum punya akun Kasera? 
+                    <a href="register.html" class="register-link">Daftar Sekarang</a>
+                </p>
+            </div>
+        </div>
     </div>
 
-</div>
+<div id="toast" class="toast"></div>
+
+<script>
+    document.querySelectorAll('.toggle-eye').forEach(icon => {
+    icon.addEventListener('click', () => {
+        const targetId = icon.getAttribute('data-target');
+        const input = document.getElementById(targetId);
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.src = 'open-eye.png';  // opsional
+        } else {
+            input.type = 'password';
+            icon.src = 'close-eye.png'; // opsional
+        }
+    });
+});
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+
+// Satu function untuk validasi + aksi login
+function handleLogin() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        showToast("Semua field wajib diisi!");
+        return;
+    }
+
+    window.location.href = "dashboard.html";
+}
+
+document.getElementById("submit-reset").addEventListener("click", handleLogin);
+</script>
 
 </body>
 </html>
