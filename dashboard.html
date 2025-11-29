@@ -98,24 +98,31 @@
         <!-- PAGE CONTENT -->
         <main class="p-6">
 
-            <div class="flex justify-between items-center mb-6">
+            <div class="page-header flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                 <h1 class="text-2xl font-bold text-gray-800">Selamat datang, Nama</h1>
 
                 <!-- FREE PLAN TRANSACTION LIMIT INFO -->
-            <div class="limit-box mt-2 mb-6 bg-yellow-100 border border-yellow-300 text-yellow-800 px-4 py-2 rounded-lg flex items-center justify-between">
-                <span class="text-sm">
-                    Paket Free • <strong>3 / 20 transaksi</strong> bulan ini 
-                </span>
-            </div>
+           <div class="limit-box bg-yellow-100 border border-yellow-300 text-yellow-800 
+                    px-4 py-2 rounded-lg flex items-center justify-between w-full md:w-auto">
+            <span class="text-sm">
+                Paket Free • <strong>3 / 20 transaksi</strong> bulan ini
+            </span>
+        </div>
 
 
-                <div class="header-actions flex gap-3">
-                    <a href="inputtransaksi.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg">＋Tambah Transaksi</a>
-                    <a href="modelbisnis.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg flex items-center gap-2">
-                        Upgrade Premium
-                    </a>
-                </div>
-            </div>
+                <div class="header-actions flex gap-3 w-full md:w-auto">
+            <a href="inputtransaksi.html"
+               class="flex-1 md:flex-none bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg text-center">
+                ＋Tambah Transaksi
+            </a>
+
+            <a href="modelbisnis.html"
+               class="flex-1 md:flex-none bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 text-center">
+                Upgrade Premium
+            </a>
+        </div>
+
+    </div>
 
             <!-- CARDS -->
             <div class="card-grid grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
@@ -190,4 +197,5 @@
 
 </body>
 </html>
+
 
