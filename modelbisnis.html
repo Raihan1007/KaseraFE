@@ -3,33 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilih Paket Anda</title>
+    <title>Kasera - Pilih Paket Anda</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        /* Custom Colors based on Image */
-        .bg-sage-light { background-color: #dce4de; }
-        .bg-sage-dark { background-color: #758c77; }
-        .text-sage-dark { color: #758c77; }
-        .border-sage-dark { border-color: #758c77; }
-        .hover-bg-sage-dark:hover { background-color: #5e705f; }
-        .hover-bg-sage-light:hover { background-color: #edf2ee; }
-    </style>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="model-bisnis.css">
 </head>
 <body class="bg-white text-slate-900">
 
     <!-- Header Section with Background Color -->
     <div class="bg-sage-light w-full py-10 px-4 sm:px-6 lg:px-8 relative">
         <div class="max-w-7xl mx-auto relative">
-            <!-- Back Button -->
-            <a href="dashboard.html" class="absolute top-0 left-0 -mt-2 text-slate-900 hover:text-slate-700 text-3xl no-underline font-bold">
-                &#8592; <!-- Unicode Left Arrow -->
+
+            <a href="dashboard.html" class="back-arrow">
+                <img src="Arrow.png" alt="Back" />
             </a>
 
-            <div class="text-center pt-4">
+            <div class="text-center pt-8"> <!-- tambah padding-top -->
                 <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                     Pilih paket yang tepat untuk Anda
                 </h1>
@@ -37,17 +29,23 @@
                     Mulai gratis, lalu upgrade saat Anda siap untuk membuka fitur-fitur canggih.
                 </p>
             </div>
+
         </div>
     </div>
 
     <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
 
-        <!-- Toggle Penagihan (Floating below header) -->
+        <!-- Toggle Penagihan -->
         <div class="mt-8 flex justify-center items-center space-x-4 mb-12">
             <span class="text-base font-medium text-slate-700">Bulanan</span>
-            <button id="billingToggle" class="relative inline-flex flex-shrink-0 h-7 w-12 border-2 border-slate-400 rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none bg-transparent" type="button" aria-pressed="false">
+            <button id="billingToggle"
+                class="relative inline-flex flex-shrink-0 h-7 w-12 border-2 border-slate-400 rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none bg-transparent"
+                type="button" aria-pressed="false">
                 <span class="sr-only">Pilih siklus penagihan</span>
-                <span id="billingToggleKnob" aria-hidden="true" class="inline-block h-5 w-5 rounded-full bg-slate-500 shadow transform ring-0 transition ease-in-out duration-200 translate-x-1 mt-0.5"></span>
+                <span id="billingToggleKnob"
+                    aria-hidden="true"
+                    class="inline-block h-5 w-5 rounded-full bg-slate-500 shadow transform ring-0 transition ease-in-out duration-200 translate-x-1 mt-0.5">
+                </span>
             </button>
             <span class="flex items-center space-x-1">
                 <span class="text-base font-medium text-slate-700">Tahunan</span>
@@ -55,16 +53,14 @@
             </span>
         </div>
 
-        <!-- Main Grid Layout: Cards + Table -->
-        <!-- On Desktop (lg): 12 columns total. Cards take 3 each, Table takes 6. -->
+        <!-- Main Grid Layout -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-            <!-- LEFT COLUMN: Pricing Cards -->
-            <!-- Free Plan -->
+            <!-- FREE PLAN -->
             <div class="lg:col-span-3 flex flex-col bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow h-full">
                 <h3 class="text-2xl font-bold text-slate-900">Free</h3>
                 <p class="mt-1 text-slate-500 text-sm">Selamanya Gratis</p>
-                
+
                 <div class="mt-6">
                     <span class="text-5xl font-bold text-slate-900">Rp 0</span>
                 </div>
@@ -94,27 +90,25 @@
                     </li>
                 </ul>
 
-                <a href="dashboard.html" class="mt-8 block w-full text-center rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-600 hover:border-sage-dark hover:text-sage-dark transition-colors">
+                <a href="dashboard.html"
+                    class="mt-8 block w-full text-center rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-600 hover:border-sage-dark hover:text-sage-dark transition-colors">
                     Mulai Gratis
                 </a>
             </div>
 
-            <!-- Premium Plan -->
+            <!-- PREMIUM PLAN -->
             <div class="lg:col-span-3 relative flex flex-col bg-white border-2 border-sage-dark rounded-2xl p-6 shadow-lg h-full">
-                <!-- Badge -->
                 <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <span class="bg-sage-dark text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
                         Paling Populer
                     </span>
                 </div>
-                
+
                 <h3 class="text-2xl font-bold text-slate-900 mt-2">Premium</h3>
                 <p class="mt-1 text-sage-dark text-sm font-medium">Buka semua fitur</p>
 
                 <div class="mt-6">
-                    <div class="flex items-baseline">
-                        <span id="premiumPrice" class="text-5xl font-bold text-slate-900">Rp 69.000</span>
-                    </div>
+                    <span id="premiumPrice" class="text-5xl font-bold text-slate-900">Rp 69.000</span>
                     <span id="billingCycle" class="text-sm text-slate-500 mt-1 block">/ bulan</span>
                 </div>
 
@@ -143,149 +137,159 @@
                     </li>
                 </ul>
 
-                <a href="#" class="mt-8 block w-full text-center rounded-lg border border-transparent bg-sage-dark px-4 py-3 text-sm font-bold text-white shadow-sm hover-bg-sage-dark transition-colors">
+                <a href="#"
+                    class="mt-8 block w-full text-center rounded-lg border border-transparent bg-sage-dark px-4 py-3 text-sm font-bold text-white shadow-sm hover-bg-sage-dark transition-colors">
                     Upgrade ke Premium
                 </a>
             </div>
 
-            <!-- RIGHT COLUMN: Detailed Table -->
+            <!-- RIGHT COLUMN: Table -->
             <div class="lg:col-span-6 w-full pl-0 lg:pl-4">
+
                 <h2 class="text-xl font-bold text-slate-900 mb-6 text-center lg:text-left">
                     Perbandingan Fitur Rinci
                 </h2>
-                
+
                 <div class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
                     <div class="overflow-x-auto">
                         <table class="min-w-full text-sm">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="py-4 px-4 text-left font-bold text-slate-900 w-1/2 bg-white">Fitur</th>
-                                    <th scope="col" class="py-4 px-4 text-center font-bold text-slate-900 w-1/4 bg-white">Free</th>
-                                    <th scope="col" class="py-4 px-4 text-center font-bold text-slate-900 w-1/4 bg-white">Premium</th>
+                                    <th class="py-4 px-4 text-left font-bold text-slate-900 w-1/2 bg-white">Fitur</th>
+                                    <th class="py-4 px-4 text-center font-bold text-slate-900 w-1/4 bg-white">Free</th>
+                                    <th class="py-4 px-4 text-center font-bold text-slate-900 w-1/4 bg-white">Premium</th>
                                 </tr>
                             </thead>
+
                             <tbody class="divide-y divide-slate-100">
-                                
-                                <!-- Category Header -->
+
                                 <tr class="bg-sage-light">
                                     <td colspan="3" class="px-4 py-2 text-xs font-bold text-slate-700 uppercase tracking-wide">
                                         Manajemen Transaksi
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td class="px-4 py-3 text-slate-600">Limit Transaksi</td>
                                     <td class="px-4 py-3 text-slate-600 text-center">20 / bulan</td>
                                     <td class="px-4 py-3 font-bold text-slate-900 text-center">Tanpa Batas</td>
                                 </tr>
+
                                 <tr>
                                     <td class="px-4 py-3 text-slate-600">Catat Hutang/Piutang</td>
                                     <td class="px-4 py-3 text-green-500 text-center font-bold">&#10003;</td>
                                     <td class="px-4 py-3 text-green-500 text-center font-bold">&#10003;</td>
                                 </tr>
+
                                 <tr>
                                     <td class="px-4 py-3 text-slate-600">Impor Data Transaksi</td>
                                     <td class="px-4 py-3 text-red-400 text-center font-bold">&#10005;</td>
                                     <td class="px-4 py-3 text-green-500 text-center font-bold">&#10003;</td>
                                 </tr>
 
-                                <!-- Category Header -->
                                 <tr class="bg-sage-light">
                                     <td colspan="3" class="px-4 py-2 text-xs font-bold text-slate-700 uppercase tracking-wide">
                                         Laporan & Analisis
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td class="px-4 py-3 text-slate-600">Laporan Transaksi</td>
                                     <td class="px-4 py-3 text-slate-600 text-center">Dasar</td>
                                     <td class="px-4 py-3 text-slate-600 text-center">Lengkap</td>
                                 </tr>
+
                                 <tr>
                                     <td class="px-4 py-3 text-slate-600">Laporan Laba Rugi</td>
                                     <td class="px-4 py-3 text-red-400 text-center font-bold">&#10005;</td>
                                     <td class="px-4 py-3 text-green-500 text-center font-bold">&#10003;</td>
                                 </tr>
 
-                                <!-- Category Header -->
                                 <tr class="bg-sage-light">
                                     <td colspan="3" class="px-4 py-2 text-xs font-bold text-slate-700 uppercase tracking-wide">
                                         Dukungan & Lainnya
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td class="px-4 py-3 text-slate-600">Sinkronisasi Perangkat</td>
                                     <td class="px-4 py-3 text-slate-600 text-center">1 Perangkat</td>
                                     <td class="px-4 py-3 text-slate-600 text-center">Multi-Perangkat</td>
                                 </tr>
+
                                 <tr>
                                     <td class="px-4 py-3 text-slate-600">Dukungan Pelanggan</td>
                                     <td class="px-4 py-3 text-slate-600 text-center">Komunitas</td>
                                     <td class="px-4 py-3 text-slate-600 text-center">Prioritas 24/7</td>
                                 </tr>
+
                                 <tr>
                                     <td class="px-4 py-3 text-slate-600">Tanpa Iklan</td>
                                     <td class="px-4 py-3 text-red-400 text-center font-bold">&#10005;</td>
                                     <td class="px-4 py-3 text-green-500 text-center font-bold">&#10003;</td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
                 </div>
+
             </div>
+
         </div>
 
     </div>
 
+    <!-- External JS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const billingToggle = document.getElementById('billingToggle');
-            const billingToggleKnob = document.getElementById('billingToggleKnob');
-            const premiumPrice = document.getElementById('premiumPrice');
-            const billingCycle = document.getElementById('billingCycle');
+    const billingToggle = document.getElementById('billingToggle');
+    const billingToggleKnob = document.getElementById('billingToggleKnob');
+    const premiumPrice = document.getElementById('premiumPrice');
+    const billingCycle = document.getElementById('billingCycle');
 
-            const prices = {
-                monthly: {
-                    price: 'Rp 69.000',
-                    cycle: '/ bulan'
-                },
-                annual: {
-                    price: 'Rp 49.000',
-                    cycle: '/ bulan (ditagih tahunan)'
-                }
-            };
+    const prices = {
+        monthly: {
+            price: 'Rp 69.000',
+            cycle: '/ bulan'
+        },
+        annual: {
+            price: 'Rp 49.000',
+            cycle: '/ bulan (ditagih tahunan)'
+        }
+    };
 
-            let isAnnual = false; // Default ke Monthly (seperti di gambar)
+    let isAnnual = false;
 
-            function updatePricing() {
-                const state = isAnnual ? 'annual' : 'monthly';
-                
-                premiumPrice.textContent = prices[state].price;
-                billingCycle.textContent = prices[state].cycle;
+    function updatePricing() {
+        const state = isAnnual ? 'annual' : 'monthly';
+        
+        premiumPrice.textContent = prices[state].price;
+        billingCycle.textContent = prices[state].cycle;
 
-                if (isAnnual) {
-                    // Style saat Tahunan (Aktif / Kanan)
-                    billingToggle.classList.replace('bg-transparent', 'bg-sage-dark');
-                    billingToggle.classList.replace('border-slate-400', 'border-sage-dark');
-                    billingToggleKnob.classList.replace('bg-slate-500', 'bg-white');
-                    billingToggleKnob.classList.replace('translate-x-1', 'translate-x-6');
-                    billingToggle.setAttribute('aria-pressed', 'true');
-                } else {
-                    // Style saat Bulanan (Non-aktif / Kiri)
-                    billingToggle.classList.replace('bg-sage-dark', 'bg-transparent');
-                    billingToggle.classList.replace('border-sage-dark', 'border-slate-400');
-                    billingToggleKnob.classList.replace('bg-white', 'bg-slate-500');
-                    billingToggleKnob.classList.replace('translate-x-6', 'translate-x-1');
-                    billingToggle.setAttribute('aria-pressed', 'false');
-                }
-            }
+        if (isAnnual) {
+            billingToggle.classList.replace('bg-transparent', 'bg-sage-dark');
+            billingToggle.classList.replace('border-slate-400', 'border-sage-dark');
+            billingToggleKnob.classList.replace('bg-slate-500', 'bg-white');
+            billingToggleKnob.classList.replace('translate-x-1', 'translate-x-6');
+            billingToggle.setAttribute('aria-pressed', 'true');
+        } else {
+            billingToggle.classList.replace('bg-sage-dark', 'bg-transparent');
+            billingToggle.classList.replace('border-sage-dark', 'border-slate-400');
+            billingToggleKnob.classList.replace('bg-white', 'bg-slate-500');
+            billingToggleKnob.classList.replace('translate-x-6', 'translate-x-1');
+            billingToggle.setAttribute('aria-pressed', 'false');
+        }
+    }
 
-            billingToggle.addEventListener('click', () => {
-                isAnnual = !isAnnual;
-                updatePricing();
-            });
+    billingToggle.addEventListener('click', () => {
+        isAnnual = !isAnnual;
+        updatePricing();
+    });
 
-            // Initialize
-            updatePricing();
-        });
+    updatePricing();
+});
+
     </script>
 
 </body>
