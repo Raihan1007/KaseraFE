@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.back-arrow {
+    position: absolute;
+    width: 20px;
+    z-index: 10;
+}
+
+.bg-sage-light {
+    background-color: #dce4de; 
+}
+
+.bg-sage-dark {
+    background-color: #758c77; 
+}
+
+.text-sage-dark {
+    color: #758c77; 
+}
+
+.border-sage-dark {
+    border-color: #758c77;
+}
+
+.hover-bg-sage-dark:hover {
+    background-color: #5e705f; 
+}
+
+.hover-bg-sage-light:hover {
+    background-color: #edf2ee; 
+}
