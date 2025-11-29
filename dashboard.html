@@ -162,11 +162,17 @@
     <!-- TOGGLE SCRIPT -->
     <script>
         const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
         const hamburger = document.getElementById('hamburger');
 
-        hamburger.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sidebar.classList.toggle('-translate-x-64');
+        });
+
+        document.addEventListener('click',(e) => {
+            if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+                sidebar.classList.add('-translate-x-64');
+            }
         });
     </script>
 
@@ -197,5 +203,6 @@
 
 </body>
 </html>
+
 
 
