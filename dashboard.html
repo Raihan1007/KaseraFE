@@ -88,6 +88,8 @@
                 </svg>
             </button>
 
+            
+
             <!-- Profile -->
             <div class="flex items-center gap-3">
                 <div class="bg-green-800 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">N</div>
@@ -101,10 +103,18 @@
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold text-gray-800">Selamat datang, Nama</h1>
 
+                <!-- FREE PLAN TRANSACTION LIMIT INFO -->
+            <div class="mt-2 mb-6 bg-yellow-100 border border-yellow-300 text-yellow-800 px-4 py-2 rounded-lg flex items-center justify-between">
+                <span class="text-sm">
+                    Paket Free • <strong>3 / 20 transaksi</strong> bulan ini 
+                </span>
+            </div>
+
+
                 <div class="flex gap-3">
                     <a href="inputtransaksi.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg">＋Tambah Transaksi</a>
                     <a href="modelbisnis.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg flex items-center gap-2">
-                        Premium Plan
+                        Upgrade Premium
                     </a>
                 </div>
             </div>
@@ -128,18 +138,17 @@
             </div>
 
             <!-- GRAFIK -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border">
-                <div class="mb-5">
-                    <label class="text-sm font-medium">Periode</label>
-                    <select class="mt-2 p-2 border rounded-lg bg-gray-50">
-                        <option value="week">Mingguan</option>
-                        <option value="month">Bulanan</option>
-                        <option value="year">Tahunan</option>
+            <div class="bg-white p-6 rounded-xl shadow-sm border mb-8">
+                <div class="mb-5 flex justify-between">
+                    <h3 class="text-lg font-semibold">Analisis Keuangan Bulanan</h3>
+                    <select class="p-2 border rounded-lg bg-gray-50">
+                        <option>Bulanan</option>
+                        <option>Mingguan</option>
+                        <option>Tahunan</option>
                     </select>
                 </div>
 
-                <h3 class="text-lg font-semibold mb-4">Growth</h3>
-                <canvas id="growthChart" class="w-full h-64"></canvas>
+                <canvas id="premiumChart" class="w-full h-64"></canvas>
             </div>
 
         </main>
@@ -159,18 +168,18 @@
 
     <!-- Chart -->
     <script>
-        const ctx = document.getElementById('growthChart');
+        const ctx = document.getElementById('premiumChart');
 
         new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
                 datasets: [{
-                    label: 'Growth',
-                    data: [2,3,1,5,2,6,3,4],
-                    borderColor: '#22C55E',
-                    backgroundColor: 'rgba(34,197,94,0.2)',
-                    borderWidth: 2,
+                    label: 'Pertumbuhan',
+                    data: [3,5,2,6,4,8,5,7],
+                    borderColor: '#D4AF37',
+                    backgroundColor: 'rgba(212,175,55,0.2)',
+                    borderWidth: 3,
                     tension: 0.4,
                     fill: true
                 }]
