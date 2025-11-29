@@ -1,177 +1,180 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Input Data Transaksi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-white p-6 font-sans">
-    <div class="max-w-4xl mx-auto p-6 border rounded-lg shadow-sm">
-      <div class="flex items-center mb-6 cursor-pointer">
-        <a href="dashboard.html">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-gray-700"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M15 19l-7-7 7-7" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kasera - Input Data Transaksi</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="input-transaksi.css">
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+  <div class="max-w-5xl mx-auto p-6">
+
+    <!-- Header -->
+    <div class="flex items-center mb-8">
+      <a href="dashboard.html"
+         class="text-gray-600 hover:text-gray-800 transition p-2 rounded-lg hover:bg-gray-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </a>
-
-        <h1 class="text-xl font-bold ml-2">Input Data Transaksi</h1>
-      </div>
-
-      <form>
-        <div class="grid grid-cols-2 gap-6">
-          <!-- Left side -->
-          <div>
-            <label class="block text-sm font-semibold mb-2"
-              >Tipe Transaksi :</label
-            >
-            <div class="flex items-center gap-4 mb-6">
-              <label class="inline-flex items-center cursor-pointer">
-                <input
-                  type="radio"
-                  name="tipe"
-                  value="pemasukan"
-                  class="peer hidden"
-                />
-                <span
-                  class="w-5 h-5 mr-2 rounded-full border border-gray-400 bg-gray-400 peer-checked:bg-gray-500 peer-checked:border-gray-500"
-                ></span>
-                Pemasukan
-              </label>
-              <label class="inline-flex items-center cursor-pointer">
-                <input
-                  type="radio"
-                  name="tipe"
-                  value="pengeluaran"
-                  class="peer hidden"
-                />
-                <span
-                  class="w-5 h-5 mr-2 rounded-full border border-gray-400 bg-gray-400 peer-checked:bg-gray-500 peer-checked:border-gray-500"
-                ></span>
-                Pengeluaran
-              </label>
-            </div>
-
-            <label for="nominal" class="block text-sm font-semibold mb-1"
-              >Nominal :</label
-            >
-            <input
-              type="number"
-              placeholder="Masukan Nominal"
-              id="nominal"
-              class="w-full rounded-lg border border-gray-400 px-4 py-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 mb-6"
-            />
-
-            <label for="metode" class="block text-sm font-semibold mb-1"
-              >Metode :</label
-            >
-            <select
-              id="metode"
-              class="w-full rounded-lg border border-gray-400 px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-gray-500 cursor-pointer"
-            >
-              <option selected disabled>Pilih metode</option>
-              <option>Cash</option>
-              <option>Qris</option>
-              <option>Transfer</option>
-              <!-- Tambahkan opsi sesuai kebutuhan -->
-            </select>
-
-            <label for="catatan" class="block text-sm font-semibold mb-1"
-              >Catatan :</label
-            >
-            <textarea
-              id="catatan"
-              rows="4"
-              placeholder="Tambahkan catatan"
-              class="w-full rounded-lg border border-gray-400 px-4 py-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 resize-none"
-            ></textarea>
-          </div>
-
-          <!-- Right side -->
-          <div>
-            <label for="kategori" class="block text-sm font-semibold mb-1"
-              >Kategori :</label
-            >
-            <select
-              id="kategori"
-              class="w-full rounded-lg border border-gray-400 px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-gray-500 cursor-pointer"
-            >
-              <option selected disabled>Pilih kategori</option>
-              <option>Bahan Baku</option>
-              <option>Penjualan</option>
-              <option>Packaging</option>
-              <option>Operasional</option>
-              <!-- Tambahkan opsi sesuai kebutuhan -->
-            </select>
-
-            <label for="tanggal" class="block text-sm font-semibold mb-1"
-              >Tanggal :</label
-            >
-            <div class="relative mb-6">
-              <input
-                type="date"
-                id="tanggal"
-                placeholder="dd/mm/yyyy"
-                class="w-full rounded-lg border border-gray-400 px-4 py-2 pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 absolute right-3 top-2.5 text-gray-500 pointer-events-none"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                
-              </svg>
-            </div>
-
-            <label class="block text-sm font-semibold mb-1">Bukti :</label>
-            <label
-              for="upload"
-              class="flex items-center justify-center gap-2 cursor-pointer w-full bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg mb-1"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M12 12v8m0 0l-4-4m4 4l4-4M12 3v9"
-                />
-              </svg>
-              Upload File
-            </label>
-            <input type="file" id="upload" class="hidden" />
-
-            <p class="text-xs text-gray-500">*max. file 10 MB</p>
-          </div>
-        </div>
-
-        <div class="mt-8 flex justify-center">
-          <button
-            type="submit"
-            class="bg-[#738A6E] hover:bg-[#344C3D] text-white font-semibold px-10 py-2 rounded-lg"
-          >
-            Simpan
-          </button>
-        </div>
-      </form>
+      <h1 class="text-2xl font-bold ml-3 text-gray-800">Input Data Transaksi</h1>
     </div>
-  </body>
+
+    <!-- Card -->
+    <div class="card-container">
+
+      <form class="space-y-8" id="transaksiForm">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+          <!-- Left -->
+          <div class="space-y-6">
+
+            <!-- Tipe -->
+            <div>
+              <label class="label">Tipe Transaksi :</label>
+
+              <div class="flex gap-5">
+                <label class="radio-label">
+                  <input type="radio" name="tipe" value="pemasukan" class="radio-input">
+                  <span class="radio-text">Pemasukan</span>
+                </label>
+
+                <label class="radio-label">
+                  <input type="radio" name="tipe" value="pengeluaran" class="radio-input">
+                  <span class="radio-text">Pengeluaran</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Nominal -->
+            <div>
+              <label class="label">Nominal :</label>
+              <input type="number" placeholder="Masukan Nominal" class="input-field" id="nominal">
+            </div>
+
+            <!-- Metode -->
+            <div>
+              <label class="label">Metode :</label>
+              <select class="input-field cursor-pointer" id="metode">
+                <option selected disabled>Pilih metode</option>
+                <option>Cash</option>
+                <option>Qris</option>
+                <option>Transfer</option>
+              </select>
+            </div>
+
+            <!-- Catatan -->
+            <div>
+              <label class="label">Catatan :</label>
+              <textarea rows="4" placeholder="Tambahkan catatan" class="input-field" id="catatan"></textarea>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div class="space-y-6">
+
+            <!-- Kategori -->
+            <div>
+              <label class="label">Kategori :</label>
+              <select class="input-field cursor-pointer" id="kategori">
+                <option selected disabled>Pilih kategori</option>
+                <option>Bahan Baku</option>
+                <option>Penjualan</option>
+                <option>Packaging</option>
+                <option>Operasional</option>
+              </select>
+            </div>
+
+            <!-- Tanggal -->
+            <div>
+              <label class="label">Tanggal :</label>
+              <input type="date" class="input-field" id="tanggal">
+            </div>
+
+            <!-- Bukti -->
+            <div>
+              <label class="label">Bukti :</label>
+              <label for="upload" class="upload-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M12 12v8m0 0l-4-4m4 4l4-4M12 3v9" />
+                </svg>
+                Upload File
+              </label>
+              <input type="file" id="upload" class="hidden">
+              <p class="text-xs text-gray-500 mt-1">*max. file 10 MB</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Submit -->
+        <div class="flex justify-center">
+          <button type="submit" class="submit-btn">Simpan</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Pesan notifikasi</div>
+
+  <script>
+          // Fungsi untuk menampilkan toast
+      function showToast(message, color) {
+          const toast = document.getElementById("toast");
+          toast.textContent = message;
+          toast.style.backgroundColor = color;
+
+          toast.classList.add("show");
+
+          setTimeout(() => {
+              toast.classList.remove("show");
+          }, 2500);
+      }
+
+      // Validasi form
+      document.getElementById("transaksiForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const tipe = document.querySelector('input[name="tipe"]:checked');
+          const nominal = document.getElementById("nominal").value.trim();
+          const metode = document.getElementById("metode").value;
+          const catatan = document.getElementById("catatan").value.trim();
+          const kategori = document.getElementById("kategori").value;
+          const tanggal = document.getElementById("tanggal").value;
+          const bukti = document.getElementById("upload").files[0];
+
+          // Cek jika ada yang kosong
+          if (
+              !tipe ||
+              nominal === "" ||
+              metode === "Pilih metode" ||
+              catatan === "" ||
+              kategori === "Pilih kategori" ||
+              tanggal === "" ||
+              !bukti
+          ) {
+              showToast("Semua field wajib diisi!", "#ff0000");
+              return;
+          }
+
+          // Semua field terisi → success
+          showToast("Data berhasil disimpan!", "#059669");
+      });
+
+  </script>
+</body>
 </html>
