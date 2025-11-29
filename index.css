@@ -1,0 +1,48 @@
+html, body {
+  scroll-behavior: smooth;
+}
+
+.toast {
+    position: fixed;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff0000;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    top: 20px;
+    opacity: 1;
+}
+
+/* Overlay fade */
+.mobile-menu {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.mobile-menu.show {
+    opacity: 1;
+}
+
+/* Slide menu lebih smooth */
+.menu-content {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.3s ease;
+}
+
+.mobile-menu.show .menu-content {
+    transform: translateX(0);
+    opacity: 1;
+}
