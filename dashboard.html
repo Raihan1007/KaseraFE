@@ -102,14 +102,14 @@
                 <h1 class="text-2xl font-bold text-gray-800">Selamat datang, Nama</h1>
 
                 <!-- FREE PLAN TRANSACTION LIMIT INFO -->
-            <div class="mt-2 mb-6 bg-yellow-100 border border-yellow-300 text-yellow-800 px-4 py-2 rounded-lg flex items-center justify-between">
+            <div class="limit-box mt-2 mb-6 bg-yellow-100 border border-yellow-300 text-yellow-800 px-4 py-2 rounded-lg flex items-center justify-between">
                 <span class="text-sm">
                     Paket Free • <strong>3 / 20 transaksi</strong> bulan ini 
                 </span>
             </div>
 
 
-                <div class="flex gap-3">
+                <div class="header-actions flex gap-3">
                     <a href="inputtransaksi.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg">＋Tambah Transaksi</a>
                     <a href="modelbisnis.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg flex items-center gap-2">
                         Upgrade Premium
@@ -118,7 +118,7 @@
             </div>
 
             <!-- CARDS -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+            <div class="card-grid grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
                 <div class="p-6 bg-green-50 border rounded-xl shadow-sm">
                     <p class="text-sm text-gray-600 mb-1">Total pemasukan bulan ini</p>
                     <h3 class="text-3xl font-bold">Rp 0</h3>
@@ -159,8 +159,7 @@
         const hamburger = document.getElementById('hamburger');
 
         hamburger.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-64');
-            mainContent.classList.toggle('ml-64');
+            sidebar.classList.toggle('active');
         });
     </script>
 
@@ -191,3 +190,4 @@
 
 </body>
 </html>
+
