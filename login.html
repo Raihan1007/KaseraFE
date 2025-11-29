@@ -17,7 +17,7 @@
         <div class="content-wrapper">
 
             <div class="banner">
-                <img src="login.png" alt="Ubah Password" width="428" height="436" />
+                <img src="Hero.png" alt="Ubah Password" width="428" height="436" />
             </div>
 
             <div class="login-container">
@@ -34,7 +34,7 @@
                     <img src="close-eye.png" class="toggle-eye" data-target="password" alt="toggle">
                 </div>
 
-                <a href="lupa-password.html" class="info-text-forgot">Lupa password?</a>
+                <a href="lupapw.html" class="info-text-forgot">Lupa password?</a>
 
                 <button id="submit-reset" type="button">Login</button>
 
@@ -56,10 +56,10 @@
 
         if (input.type === 'password') {
             input.type = 'text';
-            icon.src = 'open-eye.png';  // opsional
+            icon.src = './Assets/Login/open-eye.png';  // opsional
         } else {
             input.type = 'password';
-            icon.src = 'close-eye.png'; // opsional
+            icon.src = './Assets/Login/close-eye.png'; // opsional
         }
     });
 });
