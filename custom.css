@@ -1,18 +1,47 @@
-
+/* ==== MOBILE LAYOUT FIX ==== */
 @media (max-width: 768px) {
-    #sidebar {
-        width: 240px;
-        transform: translateX(-240px); /* hidden by default */
+
+    /* Header Page (Selamat Datang + Limit + Buttons) */
+    .page-header-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        width: 100%;
     }
 
-    #sidebar.active {
-        transform: translateX(0); /* tampil saat hamburger diklik */
+    /* Limit transaksi */
+    .limit-box {
+        width: 100% !important;
+        margin: 0 !important;
     }
 
-    #mainContent {
-        margin-left: 0 !important;
+    /* Button group */
+    .header-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Cards grid lebih rapi */
+    .card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    /* Chart box: full width dan turun ke bawah */
+    .chart-box {
+        margin-top: 20px;
+        width: 100% !important;
     }
 }
+
 
 
 @media (max-width: 768px) {
@@ -47,3 +76,4 @@
         height: 250px !important;
     }
 }
+
