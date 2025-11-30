@@ -65,10 +65,10 @@
 
         if (input.type === 'password') {
             input.type = 'text';
-            icon.src = './Assets/Register/open-eye.png';
+            icon.src = 'open-eye.png';
         } else {
             input.type = 'password';
-            icon.src = './Assets/Register/close-eye.png';
+            icon.src = 'close-eye.png';
         }
     });
 });
@@ -96,7 +96,7 @@ function handleRegister() {
         }
     }
 
-    window.location.href = "dashboard.html";
+    window.location.href = "login.html";
 }
 
 document.getElementById("submit-register").addEventListener("click", handleRegister);
@@ -104,5 +104,6 @@ document.getElementById("submit-register").addEventListener("click", handleRegis
 
 </body>
 </html>
+
 
 
