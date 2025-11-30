@@ -9,68 +9,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-/* --- RESPONSIVE UNTUK DASHBOARD KAMERA --- */
-@media (max-width: 1024px) {
-    /* Sidebar otomatis menutup di tablet */
-    #sidebar {
-        transform: translateX(-100%);
-    }
-    #mainContent {
-        margin-left: 0 !important;
-    }
-}
+        /* Default: di mobile sidebar tertutup */
+        @media (max-width: 1024px) {
+            #sidebar {
+                transform: translateX(-100%) !important;
+            }
+            #sidebar.open {
+                transform: translateX(0) !important;
+            }
+            #mainContent {
+                margin-left: 0 !important;
+            }
+        }
+        
+        /* Layout Mobile */
+        @media (max-width: 768px) {
+            main .flex.justify-between {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            main .flex.justify-between .flex.gap-3 {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .grid {
+                grid-template-columns: 1fr !important;
+            }
+            #premiumChart {
+                height: 250px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bg-green-800.text-white.w-8.h-8 {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 12px;
+            }
+            h1.text-2xl {
+                font-size: 20px !important;
+            }
+        }
+    </style>
 
-@media (max-width: 768px) {
-    /* Judul dashboard dan tombol biar tidak mepet */
-    main .flex.justify-between {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    /* Tombol tambah transaksi pindah ke bawah */
-    main .flex.justify-between .flex.gap-3 {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    /* Kartu statistik lebih rapat */
-    .grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* Grafik supaya tidak melebar */
-    #premiumChart {
-        height: 250px !important;
-    }
-
-    /* Navbar elemen biar tidak tumpuk */
-    .bg-white.shadow-sm.border-b.p-4 {
-        gap: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Profile kecil */
-    .bg-green-800.text-white.w-8.h-8 {
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 12px;
-    }
-
-    /* Tulisan nama */
-    .bg-white.shadow-sm.border-b.p-4 span {
-        font-size: 14px;
-    }
-
-    /* Teks heading */
-    h1.text-2xl {
-        font-size: 20px !important;
-    }
-}
-</style>
 
 
     <!-- Tailwind -->
@@ -222,12 +205,10 @@
     <!-- TOGGLE SCRIPT -->
     <script>
         const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
         const hamburger = document.getElementById('hamburger');
-
+        
         hamburger.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-64');
-            mainContent.classList.toggle('ml-64');
+            sidebar.classList.toggle('open');
         });
     </script>
 
@@ -258,3 +239,4 @@
 
 </body>
 </html>
+
