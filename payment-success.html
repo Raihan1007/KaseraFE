@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran Berhasil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50">
+    <div
+      class="max-w-md mx-auto mt-24 bg-white p-10 shadow-lg rounded-xl text-center"
+    >
+      <h2 class="text-3xl font-bold mb-4 text-green-600">
+        Pembayaran Berhasil!
+      </h2>
+      <p class="text-slate-600 mb-6">
+        Akun Anda sekarang telah menjadi <span class="font-bold">Premium</span>.
+      </p>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+
+      <div id="successAnimation" class="w-32 mx-auto mb-6"></div>
+
+      <script>
+        lottie.loadAnimation({
+          container: document.getElementById("successAnimation"),
+          renderer: "svg",
+          loop: false,
+          autoplay: true,
+          path: "https://assets4.lottiefiles.com/packages/lf20_jbrw3hcz.json",
+        });
+      </script>
+
+      <a
+        href="/dashboard-premium.html"
+        class="block w-full bg-[#738A6E] text-white py-3 rounded-lg mt-8 font-semibold text-center hover:bg-[#344C3D]"
+      >
+        Masuk ke Dashboard Premium
+      </a>
+    </div>
+  </body>
+</html>

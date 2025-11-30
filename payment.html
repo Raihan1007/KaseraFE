@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembayaran Premium</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            premium: "#234E40",
+            gold: "#D4AF37",
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100">
+
+  <div class="max-w-lg mx-auto mt-10 bg-white rounded-xl shadow-lg overflow-hidden">
+
+    <!-- HEADER -->
+    <div class="bg-[#738A6E] text-white p-6">
+      <h2 class="text-xl font-bold">Pembayaran Premium</h2>
+      <p class="text-white/80 text-sm">Order ID #KSR-293511</p>
+    </div>
+
+    <div class="p-6 space-y-6">
+
+      <!-- TOTAL -->
+      <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg border">
+        <span class="text-gray-600 text-sm">Total Pembayaran</span>
+        <span class="text-xl font-bold text-premium">Rp 84.000</span>
+      </div>
+
+      <!-- Payment Methods -->
+      <h3 class="font-semibold text-gray-700">Pilih Metode Pembayaran</h3>
+
+      <div class="space-y-3">
+
+        <!-- QRIS -->
+        <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+          <input type="radio" name="payment" value="qris" onchange="showQRIS()" />
+          <span class="font-medium">QRIS (Disarankan)</span>
+        </label>
+
+        <!-- VA -->
+        <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+          <input type="radio" name="payment" value="va" onchange="hideQRIS()" />
+          <span class="font-medium">Virtual Account</span>
+        </label>
+
+        <!-- eWallet -->
+        <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+          <input type="radio" name="payment" value="ewallet" onchange="hideQRIS()" />
+          <span class="font-medium">Gopay / eWallet</span>
+        </label>
+
+      </div>
+
+      <!-- QRIS BOX (Hidden Default) -->
+      <div id="qrisBox" class="hidden mt-6 p-6 border rounded-xl bg-gray-50">
+
+        <h3 class="text-lg font-semibold mb-3">Bayar dengan QRIS</h3>
+
+        <div class="bg-white p-4 rounded-lg shadow border mb-4">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=KaseraQRIS" class="mx-auto">
+          <p class="text-center text-xs text-gray-500 mt-2">Scan QR untuk melakukan pembayaran</p>
+        </div>
+
+        <!-- Timer -->
+        <p class="text-center text-sm text-gray-600 mb-4">
+          Berlaku sampai: <span class="font-semibold text-red-600" id="timer">15:00</span>
+        </p>
+
+        <!-- Check Status -->
+        <a href="payment-success.html"
+          class="block w-full bg-[#738A6E] text-white py-3 rounded-lg font-semibold text-center hover:bg-[#344C3D]">
+          Check Status Pembayaran
+        </a>
+
+      </div>
+
+    </div>
+        <div class="text-center text-xs text-gray-400 p-3">
+        Powered by KaseraPay
+    </div>
+  </div>
+
+  <script>
+    function showQRIS() {
+      document.getElementById("qrisBox").classList.remove("hidden");
+    }
+
+    function hideQRIS() {
+      document.getElementById("qrisBox").classList.add("hidden");
+    }
+
+    // Optional timer
+    let time = 15 * 60;
+    setInterval(() => {
+      const m = String(Math.floor(time / 60)).padStart(2, "0");
+      const s = String(time % 60).padStart(2, "0");
+      document.getElementById("timer").innerText = `${m}:${s}`;
+      if (time > 0) time--;
+    }, 1000);
+  </script>
+
+</body>
+</html>
