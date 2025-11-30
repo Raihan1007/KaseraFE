@@ -163,37 +163,51 @@
         const mainContent = document.getElementById('mainContent');
         const hamburger = document.getElementById('hamburger');
 
+        function closeSidebar() {
+            if (window.innerWidth < 1024) { 
+                sidebar.classList.add('-translate-x-full');
+                document.body.classList.remove('overflow-hidden'); 
+            }
+        }
+
+        function openSidebar() {
+            if (window.innerWidth < 1024) { 
+                sidebar.classList.remove('-translate-x-full');
+                document.body.classList.add('overflow-hidden');
+            }
+        }
+        
         hamburger.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-64');
-            mainContent.classList.toggle('ml-64');
-        });
-    </script>
-
-    <!-- Chart -->
-    <script>
-        const ctx = document.getElementById('premiumChart');
-
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
-                datasets: [{
-                    label: 'Pertumbuhan',
-                    data: [3,5,2,6,4,8,5,7],
-                    borderColor: '#D4AF37',
-                    backgroundColor: 'rgba(212,175,55,0.2)',
-                    borderWidth: 3,
-                    tension: 0.4,
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: { y: { beginAtZero: true } }
+            const isSidebarClosed = sidebar.classList.contains('-translate-x-full');
+            if (isSidebarClosed) {
+                openSidebar();
+            } else {
+                closeSidebar();
             }
         });
+
+        mainContent.addEventListener('click', () => {
+            const isSidebarClosed = sidebar.classList.contains('-translate-x-full');
+            if (!isSidebarClosed) {
+                closeSidebar();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) { 
+                sidebar.classList.remove('-translate-x-full');
+                document.body.classList.remove('overflow-hidden');
+            } else {
+                closeSidebar();
+            }
+        });
+        
+        if (window.innerWidth < 1024) {
+            closeSidebar();
+        }
     </script>
 
 </body>
 </html>
+
 
