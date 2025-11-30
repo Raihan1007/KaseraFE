@@ -131,59 +131,51 @@
 
   <div id="toast" class="toast">Pesan notifikasi</div>
 
-  <script>
-          // Fungsi untuk menampilkan toast
-      function showToast(message, color) {
-          const toast = document.getElementById("toast");
-          toast.textContent = message;
-          toast.style.backgroundColor = color;
+ <script>
+    function showToast(message, color) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.style.backgroundColor = color;
 
-          toast.classList.add("show");
+        toast.classList.add("show");
 
-          setTimeout(() => {
-              toast.classList.remove("show");
-          }, 2500);
-      }
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2500);
+    }
 
-      // Validasi form
-      document.getElementById("transaksiForm").addEventListener("submit", function (e) {
-          e.preventDefault();
+    document.getElementById("transaksiForm").addEventListener("submit", function (e) {
+        e.preventDefault();
 
-          const tipe = document.querySelector('input[name="tipe"]:checked');
-          const nominal = document.getElementById("nominal").value.trim();
-          const metode = document.getElementById("metode").value;
-          const catatan = document.getElementById("catatan").value.trim();
-          const kategori = document.getElementById("kategori").value;
-          const tanggal = document.getElementById("tanggal").value;
-          const bukti = document.getElementById("upload").files[0];
+        const tipe = document.querySelector('input[name="tipe"]:checked');
+        const nominal = document.getElementById("nominal").value.trim();
+        const metode = document.getElementById("metode").value;
+        const catatan = document.getElementById("catatan").value.trim();
+        const kategori = document.getElementById("kategori").value;
+        const tanggal = document.getElementById("tanggal").value;
+        const bukti = document.getElementById("upload").files[0];
 
-          // Cek jika ada yang kosong
-          if (
-              !tipe ||
-              nominal === "" ||
-              metode === "Pilih metode" ||
-              catatan === "" ||
-              kategori === "Pilih kategori" ||
-              tanggal === "" ||
-              !bukti
-          ) {
-              showToast("Semua field wajib diisi!", "#ff0000");
-              return;
-          }
+        if (
+            !tipe ||
+            nominal === "" ||
+            metode === "Pilih metode" ||
+            catatan === "" ||
+            kategori === "Pilih kategori" ||
+            tanggal === "" ||
+            !bukti
+        ) {
+            showToast("Semua field wajib diisi!", "#ff0000");
+            return;
+        }
 
-          // Semua field terisi → success
-          showToast("Data berhasil disimpan!", "#059669");
-      });
-
-           // Semua field terisi → success
         showToast("Data berhasil disimpan!", "#059669");
 
-        // Pindah halaman setelah 1 detik (biar toast terlihat dulu)
+        // Pindah halaman setelah toast muncul
         setTimeout(() => {
             window.location.href = "transaksi.html";
-        }, 1000);
+        }, 800);
     });
+</script>
 
-  </script>
 </body>
 </html>
