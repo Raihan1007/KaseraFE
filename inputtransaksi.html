@@ -175,8 +175,14 @@
           showToast("Data berhasil disimpan!", "#059669");
       });
 
+           // Semua field terisi → success
+        showToast("Data berhasil disimpan!", "#059669");
+
+        // Pindah halaman setelah 1 detik (biar toast terlihat dulu)
+        setTimeout(() => {
             window.location.href = "transaksi.html";
-        }
+        }, 1000);
+    });
 
   </script>
 </body>
