@@ -98,60 +98,63 @@
         </div>
 
         <!-- PAGE CONTENT -->
-        <main class="p-6">
+        <main class="p-4 md:p-6">
 
-            <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">Selamat datang, Nama</h1>
+    <div class="flex flex-col gap-4 mb-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <h1 class="text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-0">Selamat datang, Nama</h1>
 
-                <!-- FREE PLAN TRANSACTION LIMIT INFO -->
-            <div class="mt-2 mb-6 bg-yellow-100 border border-yellow-300 text-yellow-800 px-4 py-2 rounded-lg flex items-center justify-between">
-                <span class="text-sm">
+            <div class="bg-yellow-100 border border-yellow-300 text-yellow-800 px-3 py-1 rounded-lg flex-shrink-0">
+                <span class="text-xs md:text-sm font-medium">
                     Paket Free • <strong>3 / 20 transaksi</strong> bulan ini 
                 </span>
             </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 w-full">
+            <a href="inputtransaksi.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg text-center font-medium w-full sm:w-auto">
+                ＋ Tambah Transaksi
+            </a>
+            <a href="modelbisnis.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 font-medium w-full sm:w-auto">
+                Upgrade Premium
+            </a>
+        </div>
+    </div>
 
 
-                <div class="flex gap-3">
-                    <a href="inputtransaksi.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg">＋Tambah Transaksi</a>
-                    <a href="modelbisnis.html" class="bg-[#738A6E] hover:bg-[#344C3D] text-white px-4 py-2 rounded-lg flex items-center gap-2">
-                        Upgrade Premium
-                    </a>
-                </div>
-            </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mb-8">
+        <div class="p-4 md:p-6 bg-green-50 border rounded-xl shadow-sm">
+            <p class="text-xs md:text-sm text-gray-600 mb-1">Total pemasukan bulan ini</p>
+            <h3 class="text-xl md:text-3xl font-bold">Rp 0</h3>
+        </div>
 
-            <!-- CARDS -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-                <div class="p-6 bg-green-50 border rounded-xl shadow-sm">
-                    <p class="text-sm text-gray-600 mb-1">Total pemasukan bulan ini</p>
-                    <h3 class="text-3xl font-bold">Rp 0</h3>
-                </div>
+        <div class="p-4 md:p-6 bg-red-50 border rounded-xl shadow-sm">
+            <p class="text-xs md:text-sm text-gray-600 mb-1">Total pengeluaran bulan ini</p>
+            <h3 class="text-xl md:text-3xl font-bold">Rp 0</h3>
+        </div>
 
-                <div class="p-6 bg-red-50 border rounded-xl shadow-sm">
-                    <p class="text-sm text-gray-600 mb-1">Total pengeluaran bulan ini</p>
-                    <h3 class="text-3xl font-bold">Rp 0</h3>
-                </div>
+        <div class="p-4 md:p-6 bg-gray-50 border rounded-xl shadow-sm col-span-2 md:col-span-1">
+            <p class="text-xs md:text-sm text-gray-600 mb-1">Total saldo</p>
+            <h3 class="text-xl md:text-3xl font-bold">Rp 0</h3>
+        </div>
+    </div>
 
-                <div class="p-6 bg-gray-50 border rounded-xl shadow-sm">
-                    <p class="text-sm text-gray-600 mb-1">Total saldo</p>
-                    <h3 class="text-3xl font-bold">Rp 0</h3>
-                </div>
-            </div>
+    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border mb-8">
+        <div class="mb-5 flex justify-between items-center">
+            <h3 class="text-base md:text-lg font-semibold">Analisis Keuangan Bulanan</h3>
+            <select class="p-1 md:p-2 border rounded-lg bg-gray-50 text-sm">
+                <option>Bulanan</option>
+                <option>Mingguan</option>
+                <option>Tahunan</option>
+            </select>
+        </div>
+        <div class="relative h-64 md:h-80">
+            <canvas id="premiumChart"></canvas>
+        </div>
+    </div>
 
-            <!-- GRAFIK -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border mb-8">
-                <div class="mb-5 flex justify-between">
-                    <h3 class="text-lg font-semibold">Analisis Keuangan Bulanan</h3>
-                    <select class="p-2 border rounded-lg bg-gray-50">
-                        <option>Bulanan</option>
-                        <option>Mingguan</option>
-                        <option>Tahunan</option>
-                    </select>
-                </div>
-
-                <canvas id="premiumChart" class="w-full h-64"></canvas>
-            </div>
-
-        </main>
+</main>
     </div>
 
     <!-- TOGGLE SCRIPT -->
@@ -193,3 +196,4 @@
 
 </body>
 </html>
+
